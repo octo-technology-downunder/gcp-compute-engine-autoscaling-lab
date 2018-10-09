@@ -1,6 +1,7 @@
 # Google Cloud - Compute Engine - Lab
 
-This lab is part of the [foundations training](https://github.com/ealliaume/foundations) at [OCTO Technology Australia](http://careers.octo.com.au/).
+This lab is part of the [foundations trainings](https://github.com/octo-technology-downunder/octo-au-foundations) in place at [OCTO Technology Australia](http://careers.octo.com.au/).
+
 
 ## Overview of this lab
 
