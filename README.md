@@ -80,8 +80,11 @@ We will launch our instance from an Instance Template, we will need two of these
 * Firewall > Allow HTTP Traffic
 * Startup script (Automation > Startup script): 
 
-wget https://storage.googleapis.com/era-boot/frontend-sydney.py
-sudo python frontend-sydney.py &
+`wget https://storage.googleapis.com/era-boot/frontend-sydney.py`
+
+`sudo python frontend-sydney.py &`
+
+(You should copy paster the 2 lines above as a "2 liner")
 
 * Leave all other options as default
 
@@ -89,9 +92,9 @@ sudo python frontend-sydney.py &
 
 Click on the template and then use the 'copy' option from the toolbar, this will load the previous selections. Then just change the startup script as below.
 
-wget https://storage.googleapis.com/era-boot/frontend-belgium.py
+`wget https://storage.googleapis.com/era-boot/frontend-belgium.py`
 
-sudo python frontend-belgium.py &
+`sudo python frontend-belgium.py &`
 
 #### Create instance Group for Sydney
 
