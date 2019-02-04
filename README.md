@@ -43,6 +43,8 @@ Let's start with a bit of terminology, your applications will use:
 - Click on Project List (in the header next to the Google Cloud Platform Logo), the "Create Project"
 - Give it a "Name", select a billing account, then use the "Create" button
 
+You’ll need to be added to the list of user with rights for billing. Ask for an admin (ealliaume for example).
+
 For more information about this prerequisite step please refer to the [official documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project).
 
 ### 1. Create a bucket
@@ -76,16 +78,17 @@ We will launch our instance from an Instance Template, we will need two of these
 * 1 CPU (default)
 * Debian (default)
 * Firewall > Allow HTTP Traffic
-* Startup script (Automation > Startup script): `wget https://storage.googleapis.com/era-boot/frontend-sydney.py
-sudo python frontend-sydney.py &`
+* Startup script (Automation > Startup script): 
+`wget https://storage.googleapis.com/era-boot/frontend-sydney.py`
+`sudo python frontend-sydney.py &`
 * Leave all other options as default
 
 #### Create the second instance template for Belgium using “copy”
 
 Click on the template and then use the 'copy' option from the toolbar, this will load the previous selections. Then just change the startup script as below.
 
-`wget https://storage.googleapis.com/era-boot/frontend-belgium.py
- sudo python frontend-belgium.py &`
+`wget https://storage.googleapis.com/era-boot/frontend-belgium.py`
+`sudo python frontend-belgium.py &`
 
 #### Create instance Group for Sydney
 
@@ -97,7 +100,7 @@ Create an instance group with the following settings (leave as default those not
 * Region: Sydney
 * Select the correct instance template
 * Autoscaling: ON
-* Autoscaling: CPU usage!
+* Autoscaling Policy: CPU usage!
 * Healthchecks: create a new healthcheck, Protocol:  HTTP 80, Health critieria: 5 5 2 2
 * Initial Delay: 120s
 
@@ -182,9 +185,12 @@ Do this with the following command (change IP address):
 `gcloud compute backend-services add-backend era-backend-bel-42 --instance-group=era-ig-bel --region=europe-west1`
 
 * You now have 1 Load balancer service with 2 backends!
+Notice that VM will pop up if others are under too much pressure. This is due to python file execution (ressource needed is heavy in computation) !
+
+Well done !
 
 ## Success!!!
 
-Be sure to delete all resources used!
+Be sure to delete all resources used! You can also delete your whole project and everything will be deleted.
 
 <img src="./static/success.gif" width="500" />
